@@ -16,11 +16,14 @@ int main(){
     }
     //now sorting
     for(int i=0;i<n-1;i++){//number of passes
+        int count = 0;
         for(int j=0;j<n-1;j++){
             if(arr[j]<arr[j+1]){
+                count++;
                 swap(&arr[j],&arr[j+1]);
             }
         }
+        if(count==0)break;
     }
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
