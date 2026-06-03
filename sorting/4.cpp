@@ -8,14 +8,14 @@ void merge(int arr[],int low,int mid,int high){
     int k = 0;
     int temp[high-low+1];
      while (i <= mid && j <= high){
-       if(arr[i]>=arr[j])arr[k++] = arr[j++];
-       else if(arr[i]<arr[j])arr[k++] = arr[i++];
+       if(arr[i]>=arr[j])temp[k++] = arr[j++];
+       else if(arr[i]<arr[j])temp[k++] = arr[i++];
     }
     while(i<=mid){
-        arr[k++] = arr[i++];
+        temp[k++] = arr[i++];
     }
     while(j<=high){
-        arr[k++] = arr[j++];
+        temp[k++] = arr[j++];
     }
    for (int i = low; i <= high; i++)
             arr[i] = temp[i - low];
