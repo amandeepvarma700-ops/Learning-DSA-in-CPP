@@ -1,19 +1,26 @@
-#include <bits/stdc++.h>
+//count sum==k
+#include<bits/stdc++.h>
 using namespace std;
 
-// compute length of the longest subarray with sum 0
-int maxLen(int A[], int n) {
+int countArray(vector<int> v,int k){
+  int n = v.size();
+  unordered_map<int,int> mp;
+  int count = 0;
+  int sum = 0;
   
+  
+  for(int i=0;i<n;i++){
+    sum+=v[i];
+    int rem = sum-k;
+    if(mp.find(rem)!=mp.end()){
+      count+=mp[rem];
+    }
+    mp[sum]++;
+  }
+  return count;
 }
 
-// program entry
-int main() {
-  // sample input
-  int A[] = {9, -3, 3, -1, 6, -5};
-  // compute size
-  int n = sizeof(A) / sizeof(A[0]);
-  // print result
-  cout << maxLen(A, n) << endl;
-  // exit
-  return 0;
+int main(){
+  vector<int> v = {1,-1,1,-1,1};
+  cout<<countArray(v,0);
 }
