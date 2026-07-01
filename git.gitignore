@@ -1,0 +1,7 @@
+# Windows executables
+*.exe
+
+
+# VS Code build folder (if any)
+build/
+bin/
